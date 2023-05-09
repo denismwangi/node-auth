@@ -5,6 +5,8 @@ const path = require('path');
 
 dotenv.config({path: './dotenv'});
 const app = express();
+
+//db connection
 const db = mysql.createConnection({
     // host: process.env.DATABASE_HOST,
     // user: process.env.DATABASE_USER,
@@ -29,14 +31,8 @@ db.connect((error) =>{
         console.log("database connected...");
     }
 })
-
-
-app.get('/', (req, res) => {
-    // res.send("home");
-    res.render("index")
-
-
-});
+//Define routes
+app.use('/', require('./routes/pages'));
 
 app.listen(5000, () =>{
     console.log("Server started on port 5000");
