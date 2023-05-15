@@ -38,6 +38,9 @@
             <h5 class="card-title">Register Form</h5>
         </div>
         <div class="card-body">
+          {{#if message}}
+        <p class="alert alert-danger">{{message}}</p>
+        {{/if}}
             <form method="post" action="/auth/register"> 
                 <div class="form-group">
                     <label for="exampleInputEmail1">Name</label>
@@ -62,6 +65,7 @@
         
         
         </div>
+        
 </div>
 </div>
 </body>
